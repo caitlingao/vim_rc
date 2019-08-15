@@ -1,0 +1,18 @@
+~/.tigrc
+```
+bind refs C ?git checkout %(branch)
+bind refs n !@git branch "%(prompt Enter branch name: )"
+
+bind main B !git rebase -i %(commit)
+bind main ! !git revert %(commit)
+bind main <F4> !git difftool -d %(commit)^!
+
+bind status P !git push origin
+bind status D !@?rm %(file)
+bind status S !?git stash save --keep-index %(prompt)
+bind status <Ctrl-r> !sh -c "echo %(file) >> .gitignore && vi .gitignore"
+bind status <F4> !sh -c "git difftool -y \"$(git rev-parse --show-toplevel)/%(file)\""
+
+bind stash D !?git stash drop %(stash)
+bind stash A !?git stash apply %(stash)
+```
