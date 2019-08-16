@@ -1,4 +1,3 @@
-### Dockerfile
 ```
 FROM rust:latest as cargo-build
 
@@ -21,18 +20,4 @@ RUN cargo build --release
 RUN cargo install --path .
 
 CMD ["myapp"]
-```
-
-### docker-compose.yml
-```
-version: '3.0'
-
-services:
-  bin:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: 'mydemo-rust-image'
-    volumes:
-      - .:/usr/src/mydemo
 ```
